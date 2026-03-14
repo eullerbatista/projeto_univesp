@@ -22,4 +22,5 @@ const Usuario = sequelize.define('Usuario', {
 // Sincroniza o modelo com o banco de dados
 sequelize.sync();
 
+
 module.exports = Usuario;
