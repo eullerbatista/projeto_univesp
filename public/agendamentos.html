@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Agendamentos - Agendamento clínico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Agendamentos</h1>
+  <nav>
+    <a href="index.html">Início</a> |
+    <a href="cadastros.html">Cadastros</a>
+  </nav>
+  <section>
+    <h2>Cadastrar agendamento</h2>
+    <div class="grid">
+      <select id="paciente"></select>
+      <select id="especialidade"></select>
+      <select id="medico"></select>
+      <input type="date" id="data" />
+      <input type="time" id="horario" />
+      <button id="btn-salvar">Salvar</button>
+    </div>
+    <p id="feedback"></p>
+  </section>
+  <section id="consulta">
+    <h2>Consultar agendamentos</h2>
+    <div class="grid">
+      <input type="text" id="pesquisa" placeholder="Pesquisar por paciente ou médico" />
+      <input type="date" id="filtro-data" placeholder="Filtrar por data" />
+      <select id="filtro-medico"></select>
+      <button id="btn-filtrar">Filtrar</button>
+      <button id="btn-limpar">Limpar filtros</button>
+    </div>
+    <table id="tabela">
+      <thead><tr><th>ID</th><th>Paciente</th><th>Especialidade</th><th>Médico</th><th>Data</th><th>Hora</th><th>Status</th><th>Ações</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+  <script src="app-agendamentos.js"></script>
+</body>
+</html>

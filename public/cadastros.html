@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastros - Agendamento clínico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Cadastros</h1>
+  <nav>
+    <a href="index.html">Início</a> |
+    <a href="agendamentos.html">Agendamentos</a>
+  </nav>
+  <section>
+    <h2>Cadastrar paciente</h2>
+    <div class="grid">
+      <input type="text" id="pac-nome" placeholder="Nome" />
+      <input type="text" id="pac-telefone" placeholder="Telefone" />
+      <input type="email" id="pac-email" placeholder="Email" />
+      <button id="btn-salvar-pac">Salvar</button>
+    </div>
+    <p id="feedback-pac"></p>
+  </section>
+  <section>
+    <h2>Cadastrar especialidade</h2>
+    <div class="grid">
+      <input type="text" id="esp-nome" placeholder="Nome" />
+      <button id="btn-salvar-esp">Salvar</button>
+    </div>
+    <p id="feedback-esp"></p>
+  </section>
+  <section>
+    <h2>Cadastrar médico</h2>
+    <div class="grid">
+      <input type="text" id="med-nome" placeholder="Nome" />
+      <select id="med-especialidade"></select>
+      <button id="btn-salvar-med">Salvar</button>
+    </div>
+    <p id="feedback-med"></p>
+  </section>
+  <script src="app-cadastros.js"></script>
+</body>
+</html>
