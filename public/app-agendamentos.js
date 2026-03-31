@@ -34,8 +34,9 @@ function renderTable(agendamentos) {
       <td>${a.medico?.nome || a.medico_id}</td>
       <td>${a.data}</td>
       <td>${a.horario}</td>
-      <td>${a.status}</td>
+      <td><strong>${a.status}</strong></td>
       <td>
+        ${a.status === 'Agendado' ? `<button onclick="concluirAgendamento(${a.id})" style="background:#4CAF50;">Concluir</button>` : `<span style="color:green;">✓ Concluído</span>`}
         <button onclick="editAgendamento(${a.id})">Editar</button>
         <button onclick="deleteAgendamento(${a.id})">Excluir</button>
       </td>
@@ -106,6 +107,26 @@ function limparFiltros() {
 window.deleteAgendamento = async function(id) {
   await del(`/agendamentos/${id}`);
   await loadAgendamentos();
+};
+
+window.concluirAgendamento = async function(id) {
+  const agendamento = allAgendamentos.find(a => a.id === id);
+  if (agendamento) {
+    const result = await put(`/agendamentos/${id}`, {
+      paciente_id: agendamento.paciente_id,
+      especialidade_id: agendamento.especialidade_id,
+      medico_id: agendamento.medico_id,
+      data: agendamento.data,
+      horario: agendamento.horario,
+      status: 'Concluído'
+    });
+    if (result.error) {
+      alert(`Erro ao concluir: ${result.error}`);
+    } else {
+      alert('Agendamento marcado como concluído!');
+      await loadAgendamentos();
+    }
+  }
 };
 
 window.editAgendamento = async function(id) {
